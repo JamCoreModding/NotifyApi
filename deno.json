@@ -3,6 +3,7 @@
     "format": "deno fmt",
     "lint": "deno lint",
     "check": "deno fmt --check && deno lint",
-    "run": "deno run --allow-env --allow-net main.ts"
+    "run": "deno run --allow-env --allow-net --allow-read=.env main.ts",
+    "manifest": "deno run --allow-read --allow-write --allow-run manifest.ts"
   }
 }
