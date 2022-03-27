@@ -22,7 +22,7 @@ if (typeof Deno.env.get("DENO_DEPLOYMENT_ID") === "undefined") {
 const app = new Application();
 const router = new Router();
 
-await populateRouter(router, "./routes");
+await populateRouter(router);
 
 app.use(router.routes());
 app.use(router.allowedMethods());
