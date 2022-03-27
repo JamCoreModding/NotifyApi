@@ -26,4 +26,8 @@ await populateRouter(router);
 
 app.use(router.routes());
 app.use(router.allowedMethods());
-await app.listen({ port: 8000 });
+await app.listen({
+  port: Deno.env.get("PORT") === undefined
+    ? 8000
+    : parseInt(Deno.env.get("PORT")!),
+});
