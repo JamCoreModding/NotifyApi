@@ -1,7 +1,7 @@
 import { Mod, ModVersionInformation } from "../types.ts";
-// Handles Modrinth
+// Handles explicit `gradle.properties` files (i.e. from `custom` key)
 
-export async function resolveVersionInformationModrinth(
+export async function resolveVersionInformationExplicitGradle(
   mod: Mod,
   minecraftVersions: string[] | "*",
 ): Promise<ModVersionInformation | undefined> {

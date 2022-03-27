@@ -17,3 +17,16 @@ export type RouterEntry<T extends string> = {
   PUT?: (ctx: SimpleRouterContext<T>) => void;
   DELETE?: (ctx: SimpleRouterContext<T>) => void;
 };
+
+export type Mod = {
+  id: string;
+  contacts: Record<string, string>;
+};
+
+// Record of Minecraft version to mod version
+export type ModVersionInformation = Record<string, string>;
+
+export type CachedModVersionInformation = {
+  cacheTime: number;
+  value: ModVersionInformation;
+};

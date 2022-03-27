@@ -1,6 +1,6 @@
 import { Application, Router } from "https://deno.land/x/oak@v10.5.1/mod.ts";
 import { parse } from "https://deno.land/x/dot_env@0.2.0/mod.ts";
-import { populateRouter } from "./routing.ts";
+import { populateRouter } from "./lib/routing/routing.ts";
 
 if (typeof Deno.env.get("DENO_DEPLOYMENT_ID") === "undefined") {
   try {

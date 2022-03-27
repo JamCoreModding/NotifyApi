@@ -1,6 +1,6 @@
 import { Router } from "https://deno.land/x/oak@v10.5.1/mod.ts";
 import { cyan } from "https://deno.land/std@0.128.0/fmt/colors.ts";
-import { manifest } from "./routes.gen.ts";
+import { manifest } from "../../routes.gen.ts";
 
 export const handlerTypes = [
   "GET",

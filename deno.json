@@ -4,6 +4,6 @@
     "lint": "deno lint",
     "check": "deno fmt --check && deno lint",
     "run": "deno run --allow-env --allow-net --allow-read=.env main.ts",
-    "manifest": "deno run --allow-read --allow-write --allow-run manifest.ts"
+    "manifest": "deno run --allow-read --allow-write --allow-run ./lib/routing/manifest.ts"
   }
 }
