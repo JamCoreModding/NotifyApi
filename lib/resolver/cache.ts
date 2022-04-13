@@ -1,17 +1,13 @@
-import {
-  CachedModVersionInformation,
-  Mod,
-  ModVersionInformation,
-} from "../../types.ts";
+import { CachedLatestVersion, Mod } from "../../types.ts";
 
 export class ResolverCache {
-  #cache: Map<string, CachedModVersionInformation>;
+  #cache: Map<string, CachedLatestVersion>;
 
   constructor() {
     this.#cache = new Map();
   }
 
-  public get(mod: Mod, checkTime = true): ModVersionInformation | undefined {
+  public get(mod: Mod, checkTime = true): string | undefined {
     if (this.#cache.has(mod.id)) {
       const cachedInfo = this.#cache.get(mod.id)!;
 
@@ -30,7 +26,7 @@ export class ResolverCache {
     }
   }
 
-  public put(mod: Mod, info: ModVersionInformation) {
+  public put(mod: Mod, info: string) {
     this.#cache.set(mod.id, {
       cacheTime: new Date().getMilliseconds(),
       value: info,

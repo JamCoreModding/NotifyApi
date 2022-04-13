@@ -3,7 +3,7 @@ import { Mod, ModVersionInformation } from "../types.ts";
 
 export async function resolveVersionInformationModrinth(
   mod: Mod,
-  minecraftVersions: string[] | "*",
+  minecraftVersions: string | "*",
 ): Promise<ModVersionInformation | undefined> {
   return {};
 }

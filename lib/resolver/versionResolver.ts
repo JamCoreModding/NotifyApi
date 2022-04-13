@@ -1,4 +1,4 @@
-import { Mod, ModVersionInformation } from "../../types.ts";
+import { ModRequest } from "../../types.ts";
 import { ResolverCache } from "./cache.ts";
 import * as VersionResolvers from "../../external/external.ts";
 
@@ -15,10 +15,9 @@ const operations = [
 const cache = new ResolverCache();
 
 // Returns the version information of a given mod
-export async function getVersionInformation(
-  mod: Mod,
-  minecraftVersions: string[] | "*",
-): Promise<ModVersionInformation | undefined> {
+export async function getLatestVersion(
+  mod: ModRequest,
+): Promise<string | undefined> {
   // Check for cached result
   const cachedValue = cache.get(mod);
   if (cachedValue) {
@@ -26,7 +25,7 @@ export async function getVersionInformation(
   }
 
   for (const resolve of operations) {
-    const result = await resolve(mod, minecraftVersions);
+    const result = await resolve(mod);
 
     if (result) {
       cache.put(mod, result);

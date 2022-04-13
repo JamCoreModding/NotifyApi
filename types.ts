@@ -18,15 +18,14 @@ export type RouterEntry<T extends string> = {
   DELETE?: (ctx: SimpleRouterContext<T>) => void;
 };
 
-export type Mod = {
+export type ModRequest = {
   id: string;
   contacts: Record<string, string>;
+  custom: Record<string, string>;
+  minecraft: string;
 };
 
-// Record of Minecraft version to mod version
-export type ModVersionInformation = Record<string, string>;
-
-export type CachedModVersionInformation = {
+export type CachedLatestVersion = {
   cacheTime: number;
-  value: ModVersionInformation;
+  value: string;
 };

@@ -1,5 +1,5 @@
-import { Mod, RouterEntry } from "../../types.ts";
-import { getVersionInformation } from "../../lib/resolver/versionResolver.ts";
+import { RouterEntry } from "../../types.ts";
+import { getLatestVersion } from "../../lib/resolver/versionResolver.ts";
 
 // Returns the preffered version of the given array of Mod objects
 export const handler: RouterEntry<"/version/latest"> = {
@@ -7,10 +7,8 @@ export const handler: RouterEntry<"/version/latest"> = {
   POST: async (
     ctx,
   ) => {
-    const info = await getVersionInformation(
-      await (ctx.request.body({ type: "json" }).value),
-      "*",
-    );
+    const body = await (ctx.request.body({ type: "json" }).value);
+    const info = await getLatestVersion(body);
 
     if (info) {
       ctx.response.body = info;
